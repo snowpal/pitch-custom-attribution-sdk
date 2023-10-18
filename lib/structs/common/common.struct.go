@@ -15,3 +15,14 @@ type EmailAddress struct {
 	Primary      bool   `json:"primary"`
 	EmailAddress string `json:"emailAddress"`
 }
+
+type LastModified struct {
+	By string `json:"by"`
+	On string `json:"on"`
+}
+
+type UserMetadata struct {
+	CreatedBy    string       `json:"createdBy"`
+	UpdateBy     []string     `json:"updatedBy"`
+	LastModified LastModified `json:"lastModified"`
+}
