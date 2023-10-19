@@ -12,8 +12,8 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 )
 
-func CreateTextAttribute(jwtToken string, reqBody request.TextAttrReq) (response.TextAttr, error) {
-	var resTextAttr response.TextAttr
+func CreateTextAttribute(jwtToken string, reqBody request.PrimitiveAttrReq) (response.PrimitiveAttr, error) {
+	var resTextAttr response.PrimitiveAttr
 
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {
