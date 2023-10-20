@@ -20,7 +20,7 @@ func CreateNumberAttribute(jwtToken string, reqBody any) (any, error) {
 	}
 
 	var route string
-	route, err = helpers.GetRoute(lib.RouteAttributesCreateTextAttribute)
+	route, err = helpers.GetRoute(lib.RouteAttributesCreateNumberAttribute)
 	if err != nil {
 		fmt.Println(err)
 		return resNumberAttr, err
