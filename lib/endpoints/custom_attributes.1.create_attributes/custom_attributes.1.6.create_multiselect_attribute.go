@@ -1,4 +1,4 @@
-package custom_attributes
+package customattributes
 
 import (
 	"encoding/json"

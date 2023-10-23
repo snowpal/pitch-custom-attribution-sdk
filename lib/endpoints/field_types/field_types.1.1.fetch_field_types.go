@@ -1,4 +1,4 @@
-package field_types
+package fieldtypes
 
 import (
 	"encoding/json"

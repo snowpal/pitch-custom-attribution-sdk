@@ -1,4 +1,4 @@
-package attributes_bag_1
+package attributesbag
 
 import (
 	"encoding/json"
