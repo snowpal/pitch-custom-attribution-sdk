@@ -1,4 +1,4 @@
-package field_types
+package fieldtypes
 
 import (
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 )
 
-func GetFieldTypes(jwtToken string) ([]response.FieldType, error) {
+func FetchFieldTypes(jwtToken string) ([]response.FieldType, error) {
 	resFieldTypes := response.FieldTypes{}
 	route, err := helpers.GetRoute(lib.RouteFieldTypesGetFieldTypes)
 	if err != nil {

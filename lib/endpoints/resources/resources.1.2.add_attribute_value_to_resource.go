@@ -1,36 +1,35 @@
-package customattributes
+package resources
 
 import (
 	"encoding/json"
 	"fmt"
-	"io"
-	"net/http"
-
 	"github.com/snowpal/pitch-go-status-sdk/lib"
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
+	"io"
+	"net/http"
 )
 
-func CreateNumberAttribute(jwtToken string, reqBody any) (any, error) {
-	var resNumberAttr any
+func AddAttrValueToResource(jwtToken string, reqBody any) (any, error) {
+	var resAttributeValue any
 
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {
 		fmt.Println(err)
-		return resNumberAttr, err
+		return resAttributeValue, err
 	}
 
 	var route string
-	route, err = helpers.GetRoute(lib.RouteAttributesCreateNumberAttribute)
+	route, err = helpers.GetRoute(lib.RouteResourcesAddAttributeValuesToResource)
 	if err != nil {
 		fmt.Println(err)
-		return resNumberAttr, err
+		return resAttributeValue, err
 	}
 
 	var req *http.Request
-	req, err = http.NewRequest(http.MethodPost, route, payload)
+	req, err = http.NewRequest(http.MethodPatch, route, payload)
 	if err != nil {
 		fmt.Println(err)
-		return resNumberAttr, err
+		return resAttributeValue, err
 	}
 
 	helpers.AddUserHeaders(jwtToken, req)
@@ -39,7 +38,7 @@ func CreateNumberAttribute(jwtToken string, reqBody any) (any, error) {
 	res, err = helpers.MakeRequest(req)
 	if err != nil {
 		fmt.Println(err)
-		return resNumberAttr, err
+		return resAttributeValue, err
 	}
 
 	defer helpers.CloseBody(res.Body)
@@ -48,14 +47,13 @@ func CreateNumberAttribute(jwtToken string, reqBody any) (any, error) {
 	body, err = io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
-		return resNumberAttr, err
+		return resAttributeValue, err
 	}
 
-	err = json.Unmarshal(body, &resNumberAttr)
+	err = json.Unmarshal(body, &resAttributeValue)
 	if err != nil {
 		fmt.Println(err)
-		return resNumberAttr, err
+		return resAttributeValue, err
 	}
-
-	return resNumberAttr, nil
+	return resAttributeValue, nil
 }
