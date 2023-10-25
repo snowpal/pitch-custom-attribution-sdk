@@ -14,14 +14,14 @@ func FetchResourceAttrBags(jwtToken string) (any, error) {
 	route, err := helpers.GetRoute(lib.RouteResourcesGetResourceAttributeBags)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributeBag, err
 	}
 
 	var req *http.Request
 	req, err = http.NewRequest(http.MethodGet, route, nil)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributeBag, err
 	}
 
 	helpers.AddUserHeaders(jwtToken, req)
@@ -30,7 +30,7 @@ func FetchResourceAttrBags(jwtToken string) (any, error) {
 	res, err = helpers.MakeRequest(req)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributeBag, err
 	}
 
 	defer helpers.CloseBody(res.Body)
@@ -39,13 +39,13 @@ func FetchResourceAttrBags(jwtToken string) (any, error) {
 	body, err = io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributeBag, err
 	}
 
 	err = json.Unmarshal(body, &resAttributeBag)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributeBag, err
 	}
-	return nil, nil
+	return resAttributeBag, nil
 }
