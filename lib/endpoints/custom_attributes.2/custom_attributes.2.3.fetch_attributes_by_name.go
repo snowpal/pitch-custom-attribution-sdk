@@ -15,14 +15,14 @@ func FetchAttributesByName(jwtToken string) (any, error) {
 	route, err := helpers.GetRoute(lib.RouteAttributesGetAttributeByName)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributesByName, err
 	}
 
 	var req *http.Request
 	req, err = http.NewRequest(http.MethodGet, route, nil)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributesByName, err
 	}
 
 	helpers.AddUserHeaders(jwtToken, req)
@@ -31,7 +31,7 @@ func FetchAttributesByName(jwtToken string) (any, error) {
 	res, err = helpers.MakeRequest(req)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributesByName, err
 	}
 
 	defer helpers.CloseBody(res.Body)
@@ -40,13 +40,13 @@ func FetchAttributesByName(jwtToken string) (any, error) {
 	body, err = io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributesByName, err
 	}
 
 	err = json.Unmarshal(body, &resAttributesByName)
 	if err != nil {
 		fmt.Println(err)
-		return nil, err
+		return resAttributesByName, err
 	}
-	return nil, nil
+	return resAttributesByName, nil
 }
