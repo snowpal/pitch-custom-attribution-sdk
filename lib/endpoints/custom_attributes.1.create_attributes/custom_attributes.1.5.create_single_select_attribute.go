@@ -3,6 +3,8 @@ package customattributes
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/request"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 
@@ -10,8 +12,8 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func CreateSingleSelectAttribute(jwtToken string, reqBody any) (any, error) {
-	var resSingleSelectAttr any
+func CreateSingleSelectAttribute(jwtToken string, reqBody request.SelectAttrReq) (response.SingleSelectAttr, error) {
+	var resSingleSelectAttr response.SingleSelectAttr
 
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {
