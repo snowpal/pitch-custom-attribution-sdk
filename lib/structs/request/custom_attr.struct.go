@@ -18,3 +18,10 @@ type NSSAttrReq struct {
 	Name    string             `json:"name"`
 	Options []common.NSSOption `json:"options"`
 }
+
+type AttributeReq struct {
+	*PrimitiveAttrReq
+	*SelectAttrReq
+	*MultiselectAttrReq
+	*NSSAttrReq
+}
