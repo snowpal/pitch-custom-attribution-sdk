@@ -7,6 +7,7 @@ type PrimitiveAttr struct {
 	Name      string `json:"name"`
 	FieldType string `json:"fieldType"`
 	Label     *bool  `json:"label,omitempty"`
+	Active    bool   `json:"active"`
 	common.UserMetadata
 }
 

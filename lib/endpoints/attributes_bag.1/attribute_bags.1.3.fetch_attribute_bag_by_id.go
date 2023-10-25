@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"github.com/snowpal/pitch-go-status-sdk/lib"
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 )
 
-func FetchAttributeBagByID(jwtToken string) (any, error) {
-	var resAttributeBagsByID any
+func FetchAttributeBagByID(jwtToken string) (response.AttrBag, error) {
+	var resAttributeBagsByID response.AttrBag
 	route, err := helpers.GetRoute(lib.RouteAttributeBagsGetAttributeBagByID)
 	if err != nil {
 		fmt.Println(err)
