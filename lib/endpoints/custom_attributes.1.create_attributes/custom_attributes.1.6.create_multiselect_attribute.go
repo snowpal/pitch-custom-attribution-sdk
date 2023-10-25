@@ -56,5 +56,6 @@ func CreateMultiselectAttribute(jwtToken string, reqBody any) (any, error) {
 		fmt.Println(err)
 		return resMultiselectAttr, err
 	}
+
 	return resMultiselectAttr, nil
 }

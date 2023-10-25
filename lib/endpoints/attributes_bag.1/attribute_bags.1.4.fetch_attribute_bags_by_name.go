@@ -47,5 +47,6 @@ func FetchAttributeBagsByName(jwtToken string) (any, error) {
 		fmt.Println(err)
 		return resAttributeBagsByName, err
 	}
+
 	return resAttributeBagsByName, nil
 }

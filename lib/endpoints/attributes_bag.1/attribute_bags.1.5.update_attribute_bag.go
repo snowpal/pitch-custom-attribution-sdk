@@ -55,5 +55,6 @@ func UpdateAttributeBag(jwtToken string, reqBody any) (any, error) {
 		fmt.Println(err)
 		return resAttributeBag, err
 	}
+
 	return resAttributeBag, nil
 }

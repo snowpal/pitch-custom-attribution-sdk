@@ -56,5 +56,6 @@ func CreateFileAttribute(jwtToken string, reqBody any) (any, error) {
 		fmt.Println(err)
 		return resFileAttr, err
 	}
+
 	return resFileAttr, nil
 }

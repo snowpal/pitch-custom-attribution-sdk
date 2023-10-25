@@ -56,5 +56,6 @@ func CreateDateAttribute(jwtToken string, reqBody any) (any, error) {
 		fmt.Println(err)
 		return resDateAttr, err
 	}
+
 	return resDateAttr, nil
 }

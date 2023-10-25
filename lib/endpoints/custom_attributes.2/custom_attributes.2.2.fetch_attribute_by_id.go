@@ -10,7 +10,7 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func FetchAttributesByID(jwtToken string) (any, error) {
+func FetchAttributeByID(jwtToken string) (any, error) {
 	var resAttributesByID any
 	route, err := helpers.GetRoute(lib.RouteAttributesGetAttributeByID)
 	if err != nil {
@@ -48,5 +48,6 @@ func FetchAttributesByID(jwtToken string) (any, error) {
 		fmt.Println(err)
 		return resAttributesByID, err
 	}
+
 	return resAttributesByID, nil
 }

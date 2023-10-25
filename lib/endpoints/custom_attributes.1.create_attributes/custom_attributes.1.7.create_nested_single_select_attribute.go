@@ -12,7 +12,6 @@ import (
 
 func CreateNestedSingleSelectAttribute(jwtToken string, reqBody any) (any, error) {
 	var resNestedSingleSelectAttr any
-
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {
 		fmt.Println(err)
@@ -56,5 +55,6 @@ func CreateNestedSingleSelectAttribute(jwtToken string, reqBody any) (any, error
 		fmt.Println(err)
 		return resNestedSingleSelectAttr, err
 	}
+
 	return resNestedSingleSelectAttr, nil
 }

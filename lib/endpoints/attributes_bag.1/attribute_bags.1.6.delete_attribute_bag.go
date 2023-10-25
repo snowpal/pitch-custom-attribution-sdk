@@ -28,5 +28,6 @@ func DeleteAttributeBag(jwtToken string) error {
 		fmt.Println(err)
 		return err
 	}
+
 	return nil
 }

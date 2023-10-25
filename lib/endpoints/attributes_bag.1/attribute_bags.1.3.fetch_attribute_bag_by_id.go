@@ -1,28 +1,27 @@
-package customattributes
+package attributesbag
 
 import (
 	"encoding/json"
 	"fmt"
-	"io"
-	"net/http"
-
 	"github.com/snowpal/pitch-go-status-sdk/lib"
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
+	"io"
+	"net/http"
 )
 
-func FetchAttributesByName(jwtToken string) (any, error) {
-	var resAttributesByName any
-	route, err := helpers.GetRoute(lib.RouteAttributesGetAttributeByName)
+func FetchAttributeBagByID(jwtToken string) (any, error) {
+	var resAttributeBagsByID any
+	route, err := helpers.GetRoute(lib.RouteAttributeBagsGetAttributeBagByID)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributesByName, err
+		return resAttributeBagsByID, err
 	}
 
 	var req *http.Request
 	req, err = http.NewRequest(http.MethodGet, route, nil)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributesByName, err
+		return resAttributeBagsByID, err
 	}
 
 	helpers.AddUserHeaders(jwtToken, req)
@@ -31,7 +30,7 @@ func FetchAttributesByName(jwtToken string) (any, error) {
 	res, err = helpers.MakeRequest(req)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributesByName, err
+		return resAttributeBagsByID, err
 	}
 
 	defer helpers.CloseBody(res.Body)
@@ -40,13 +39,14 @@ func FetchAttributesByName(jwtToken string) (any, error) {
 	body, err = io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributesByName, err
+		return resAttributeBagsByID, err
 	}
 
-	err = json.Unmarshal(body, &resAttributesByName)
+	err = json.Unmarshal(body, &resAttributeBagsByID)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributesByName, err
+		return resAttributeBagsByID, err
 	}
-	return resAttributesByName, nil
+
+	return resAttributeBagsByID, nil
 }

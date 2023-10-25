@@ -56,5 +56,6 @@ func CreateNumberAttribute(jwtToken string, reqBody any) (any, error) {
 		fmt.Println(err)
 		return resNumberAttr, err
 	}
+
 	return resNumberAttr, nil
 }

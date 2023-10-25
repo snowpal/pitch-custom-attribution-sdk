@@ -56,5 +56,6 @@ func CreateSingleSelectAttribute(jwtToken string, reqBody any) (any, error) {
 		fmt.Println(err)
 		return resSingleSelectAttr, err
 	}
+
 	return resSingleSelectAttr, nil
 }

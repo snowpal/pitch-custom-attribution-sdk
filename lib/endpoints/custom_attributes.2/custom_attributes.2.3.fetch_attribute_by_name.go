@@ -10,19 +10,19 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func FetchAttributes(jwtToken string) (any, error) {
-	var resAttributes any
-	route, err := helpers.GetRoute(lib.RouteAttributesGetAttributes)
+func FetchAttributeByName(jwtToken string) (any, error) {
+	var resAttributesByName any
+	route, err := helpers.GetRoute(lib.RouteAttributesGetAttributeByName)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributes, err
+		return resAttributesByName, err
 	}
 
 	var req *http.Request
 	req, err = http.NewRequest(http.MethodGet, route, nil)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributes, err
+		return resAttributesByName, err
 	}
 
 	helpers.AddUserHeaders(jwtToken, req)
@@ -31,7 +31,7 @@ func FetchAttributes(jwtToken string) (any, error) {
 	res, err = helpers.MakeRequest(req)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributes, err
+		return resAttributesByName, err
 	}
 
 	defer helpers.CloseBody(res.Body)
@@ -40,14 +40,14 @@ func FetchAttributes(jwtToken string) (any, error) {
 	body, err = io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributes, err
+		return resAttributesByName, err
 	}
 
-	err = json.Unmarshal(body, &resAttributes)
+	err = json.Unmarshal(body, &resAttributesByName)
 	if err != nil {
 		fmt.Println(err)
-		return resAttributes, err
+		return resAttributesByName, err
 	}
 
-	return resAttributes, nil
+	return resAttributesByName, nil
 }

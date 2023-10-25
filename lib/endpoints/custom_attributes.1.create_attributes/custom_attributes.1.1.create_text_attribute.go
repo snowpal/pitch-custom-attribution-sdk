@@ -58,5 +58,6 @@ func CreateTextAttribute(jwtToken string, reqBody request.PrimitiveAttrReq) (res
 		fmt.Println(err)
 		return resTextAttr, err
 	}
+
 	return resTextAttr, nil
 }
