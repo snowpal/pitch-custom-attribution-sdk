@@ -44,7 +44,7 @@ type NSSOption struct {
 	Child NSSChild `json:"child,omitempty"`
 }
 
-type Attribute struct {
+type BagAttribute struct {
 	ID       string `json:"ID"`
 	Required bool   `json:"required"`
 	List     bool   `json:"list"`
