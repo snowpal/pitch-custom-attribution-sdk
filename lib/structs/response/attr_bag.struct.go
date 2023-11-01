@@ -3,9 +3,9 @@ package response
 import "github.com/snowpal/pitch-go-status-sdk/lib/structs/common"
 
 type AttrBag struct {
-	ID         string             `json:"ID"`
-	Name       string             `json:"name"`
-	Attributes []common.Attribute `json:"attributes"`
+	ID         string                `json:"ID"`
+	Name       string                `json:"name"`
+	Attributes []common.BagAttribute `json:"attributes"`
 	common.UserMetadata
 }
 

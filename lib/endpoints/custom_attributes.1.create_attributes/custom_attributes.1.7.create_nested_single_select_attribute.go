@@ -3,6 +3,8 @@ package customattributes
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/request"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 
@@ -10,8 +12,8 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func CreateNestedSingleSelectAttribute(jwtToken string, reqBody any) (any, error) {
-	var resNestedSingleSelectAttr any
+func CreateNestedSingleSelectAttribute(jwtToken string, reqBody request.NSSAttrReq) (response.NSSAttr, error) {
+	var resNestedSingleSelectAttr response.NSSAttr
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {
 		fmt.Println(err)

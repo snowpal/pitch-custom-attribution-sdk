@@ -3,6 +3,8 @@ package customattributes
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/request"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 
@@ -10,8 +12,8 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func UpdateAttribute(jwtToken string, reqBody any) (any, error) {
-	var resAttribute any
+func UpdateAttribute(jwtToken string, reqBody request.AttributeReq) (response.Attribute, error) {
+	var resAttribute response.Attribute
 
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {

@@ -7,6 +7,7 @@ type PrimitiveAttr struct {
 	Name      string `json:"name"`
 	FieldType string `json:"fieldType"`
 	Label     *bool  `json:"label,omitempty"`
+	Active    bool   `json:"active"`
 	common.UserMetadata
 }
 
@@ -28,11 +29,20 @@ type NSSAttr struct {
 	common.UserMetadata
 }
 
+type AttributeOption struct {
+	*common.SelectOption
+	*common.NSSOption
+}
+
 type Attribute struct {
-	*PrimitiveAttr
-	*SingleSelectAttr
-	*MultiselectAttr
-	*NSSAttr
+	ID            string            `json:"ID"`
+	Name          string            `json:"name"`
+	FieldType     string            `json:"fieldType"`
+	LeafFieldType *string           `json:"leafFieldType,omitempty"`
+	Label         *bool             `json:"label,omitempty"`
+	Active        bool              `json:"active"`
+	Options       []AttributeOption `json:"options,omitempty"`
+	common.UserMetadata
 }
 
 type Attributes struct {
