@@ -25,3 +25,7 @@ type AttributeReq struct {
 	*MultiselectAttrReq
 	*NSSAttrReq
 }
+
+type AttributesReq struct {
+	Attributes []AttributeReq `json:"attributes"`
+}
