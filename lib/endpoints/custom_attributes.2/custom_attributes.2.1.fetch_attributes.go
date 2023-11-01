@@ -3,6 +3,7 @@ package customattributes
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 
@@ -10,8 +11,8 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func FetchAttributes(jwtToken string) (any, error) {
-	var resAttributes any
+func FetchAttributes(jwtToken string) (response.Attributes, error) {
+	var resAttributes response.Attributes
 	route, err := helpers.GetRoute(lib.RouteAttributesGetAttributes)
 	if err != nil {
 		fmt.Println(err)

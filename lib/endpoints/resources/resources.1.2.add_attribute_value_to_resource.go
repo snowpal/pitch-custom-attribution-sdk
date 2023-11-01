@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"github.com/snowpal/pitch-go-status-sdk/lib"
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/request"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 )
 
-func AddAttrValueToResource(jwtToken string, reqBody any) (any, error) {
-	var resAttributeValue any
+func AddAttrValueToResource(jwtToken string, reqBody request.AttributesReq) (response.Attributes, error) {
+	var resAttributeValue response.Attributes
 
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {

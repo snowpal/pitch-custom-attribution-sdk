@@ -3,14 +3,16 @@ package resources
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/snowpal/pitch-go-status-sdk/lib"
-	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 	"io"
 	"net/http"
+
+	"github.com/snowpal/pitch-go-status-sdk/lib"
+	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 )
 
-func FetchResourceAttrBagValues(jwtToken string) (any, error) {
-	var resAttributeBagValues any
+func FetchResourceAttrBagValues(jwtToken string) (response.ResourceAttrBagValues, error) {
+	var resAttributeBagValues response.ResourceAttrBagValues
 	route, err := helpers.GetRoute(lib.RouteResourcesGetResourceAttributeBagValues)
 	if err != nil {
 		fmt.Println(err)

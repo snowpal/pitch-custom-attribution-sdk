@@ -3,6 +3,8 @@ package customattributes
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/request"
+	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
 	"io"
 	"net/http"
 
@@ -10,8 +12,8 @@ import (
 	"github.com/snowpal/pitch-go-status-sdk/lib/helpers"
 )
 
-func CreateMultiselectAttribute(jwtToken string, reqBody any) (any, error) {
-	var resMultiselectAttr any
+func CreateMultiselectAttribute(jwtToken string, reqBody request.MultiselectAttrReq) (response.MultiselectAttr, error) {
+	var resMultiselectAttr response.MultiselectAttr
 
 	payload, err := helpers.GetRequestPayload(reqBody)
 	if err != nil {

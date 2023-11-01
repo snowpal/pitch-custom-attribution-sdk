@@ -39,12 +39,12 @@ type NSSChild struct {
 }
 
 type NSSOption struct {
-	ID    int      `json:"ID"`
-	Value string   `json:"value"`
-	Child NSSChild `json:"child,omitempty"`
+	ID    int       `json:"ID"`
+	Value string    `json:"value"`
+	Child *NSSChild `json:"child,omitempty"`
 }
 
-type Attribute struct {
+type BagAttribute struct {
 	ID       string `json:"ID"`
 	Required bool   `json:"required"`
 	List     bool   `json:"list"`
