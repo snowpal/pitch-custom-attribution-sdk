@@ -8,4 +8,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
 )
 
-require golang.org/x/sys v0.1.0 // indirect
+require (
+	go.mongodb.org/mongo-driver v1.12.1
+	golang.org/x/sys v0.1.0 // indirect
+)
