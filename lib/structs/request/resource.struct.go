@@ -1,6 +1,6 @@
 package request
 
-import "github.com/snowpal/pitch-go-status-sdk/lib/structs/common"
+import "github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/common"
 
 type AttrBagsReq struct {
 	BagIDs []string `json:"bagIDs"`

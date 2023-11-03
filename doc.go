@@ -4,7 +4,7 @@ Check out the recipes to get a sense of what the underlying API has to offer. He
 	package main
 
 	import (
-		"github.com/snowpal/pitch-go-status-sdk/lib/recipes"
+		"github.com/snowpal/pitch-custom-attribution-sdk/lib/recipes"
 
 		log "github.com/sirupsen/logrus"
 	)
