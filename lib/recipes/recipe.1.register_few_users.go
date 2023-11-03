@@ -1,8 +1,8 @@
 package recipes
 
 import (
-	"github.com/snowpal/pitch-go-status-sdk/lib"
-	"github.com/snowpal/pitch-go-status-sdk/lib/helpers/recipes"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/helpers/recipes"
 
 	log "github.com/sirupsen/logrus"
 )

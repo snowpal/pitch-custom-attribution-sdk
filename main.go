@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/snowpal/pitch-go-status-sdk/lib/config"
-	"github.com/snowpal/pitch-go-status-sdk/lib/recipes"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/config"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/recipes"
 
 	log "github.com/sirupsen/logrus"
-	blockattrs "github.com/snowpal/pitch-go-status-sdk/lib/recipes/recipe.2.create_block_with_custom_attrs"
+	blockattrs "github.com/snowpal/pitch-custom-attribution-sdk/lib/recipes/recipe.2.create_block_with_custom_attrs"
 )
 
 func main() {

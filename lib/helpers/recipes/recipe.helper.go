@@ -3,8 +3,8 @@ package recipes
 import (
 	"time"
 
-	"github.com/snowpal/pitch-go-status-sdk/lib"
-	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 )
 
 func sleepWindow(sleepTime time.Duration) {

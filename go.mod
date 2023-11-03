@@ -1,4 +1,4 @@
-module github.com/snowpal/pitch-go-status-sdk
+module github.com/snowpal/pitch-custom-attribution-sdk
 
 go 1.19
 

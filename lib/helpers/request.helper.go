@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/snowpal/pitch-go-status-sdk/lib"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
 	"golang.org/x/exp/slices"
 )
 
