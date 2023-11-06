@@ -33,7 +33,7 @@ func CreateBlockWithCustomAttrs() {
 
 	var blockID primitive.ObjectID
 	// Associate the above attribute bag with a block
-	err = AssiciateBagWithBlock(user, blockID, attributeBag)
+	err = AssociateBagWithBlock(user, blockID, attributeBag)
 	if err != nil {
 		return
 	}

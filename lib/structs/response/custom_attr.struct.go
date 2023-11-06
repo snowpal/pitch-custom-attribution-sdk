@@ -1,18 +1,21 @@
 package response
 
-import "github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/common"
+import (
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/common"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
 
 type PrimitiveAttr struct {
-	ID        string `json:"ID"`
-	Name      string `json:"name"`
-	FieldType string `json:"fieldType"`
-	Label     *bool  `json:"label,omitempty"`
-	Active    bool   `json:"active"`
+	ID        primitive.ObjectID `json:"ID"`
+	Name      string             `json:"name"`
+	FieldType string             `json:"fieldType"`
+	Label     *bool              `json:"label,omitempty"`
+	Active    bool               `json:"active"`
 	common.UserMetadata
 }
 
 type SingleSelectAttr struct {
-	ID        string                `json:"ID"`
+	ID        primitive.ObjectID    `json:"ID"`
 	Name      string                `json:"name"`
 	FieldType string                `json:"fieldType"`
 	Options   []common.SelectOption `json:"options"`
@@ -22,7 +25,7 @@ type SingleSelectAttr struct {
 type MultiselectAttr = SingleSelectAttr
 
 type NSSAttr struct {
-	ID        string             `json:"ID"`
+	ID        primitive.ObjectID `json:"ID"`
 	Name      string             `json:"name"`
 	FieldType string             `json:"fieldType"`
 	Options   []common.NSSOption `json:"options"`
@@ -35,13 +38,13 @@ type AttributeOption struct {
 }
 
 type Attribute struct {
-	ID            string            `json:"ID"`
-	Name          string            `json:"name"`
-	FieldType     string            `json:"fieldType"`
-	LeafFieldType *string           `json:"leafFieldType,omitempty"`
-	Label         *bool             `json:"label,omitempty"`
-	Active        bool              `json:"active"`
-	Options       []AttributeOption `json:"options,omitempty"`
+	ID            primitive.ObjectID `json:"ID"`
+	Name          string             `json:"name"`
+	FieldType     string             `json:"fieldType"`
+	LeafFieldType *string            `json:"leafFieldType,omitempty"`
+	Label         *bool              `json:"label,omitempty"`
+	Active        bool               `json:"active"`
+	Options       []AttributeOption  `json:"options,omitempty"`
 	common.UserMetadata
 }
 

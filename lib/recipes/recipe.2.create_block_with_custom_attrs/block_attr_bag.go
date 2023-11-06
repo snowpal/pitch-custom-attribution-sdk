@@ -15,7 +15,7 @@ func CreateAttributeBagForBlock(user response.User, attrIDs []primitive.ObjectID
 	return attrBag, nil
 }
 
-func AssiciateBagWithBlock(user response.User, blockID primitive.ObjectID,
+func AssociateBagWithBlock(user response.User, blockID primitive.ObjectID,
 	attrBag response.AttrBag) error {
 	log.Info("TODO(1): Associate the attribute bag with block.")
 
