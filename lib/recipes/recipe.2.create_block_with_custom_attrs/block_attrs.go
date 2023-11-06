@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
 	log "github.com/sirupsen/logrus"
+	ca "github.com/snowpal/pitch-custom-attribution-sdk/lib/endpoints/custom_attributes.1.create_attributes"
 )
 
 func CreateBlockAttributes(user response.User) ([]primitive.ObjectID, error) {
