@@ -2,9 +2,9 @@ package blockattrs
 
 import (
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/helpers/recipes"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/common"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/request"
-	"github.com/snowpal/pitch-go-status-sdk/lib/structs/common"
-	"github.com/snowpal/pitch-go-status-sdk/lib/structs/response"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
 	log "github.com/sirupsen/logrus"
