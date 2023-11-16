@@ -116,7 +116,7 @@ func createScaleAndScaleValue(user response.User) (primitive.ObjectID, error) {
 				Value: "Grades",
 				Child: &common.NSSChild{
 					Name:      BlockAttrs[ScaleAndScaleValue].ChildName,
-					FieldType: "Single Select",
+					FieldType: "SingleSelect",
 					Options: &[]common.NSSOption{
 						{
 							ID:    1,

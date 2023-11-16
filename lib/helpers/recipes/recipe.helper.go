@@ -100,15 +100,14 @@ func CreateDateAttribute(user response.User, attrName string) (primitive.ObjectI
 }
 
 func CreateNSSAttribute(user response.User, attrName string,
-	options []common.NSSOption) (primitive.ObjectID,
-	error) {
+	options []common.NSSOption) (primitive.ObjectID, error) {
 	SleepBefore()
 	log.Infof("Creating %s nested single select.", attrName)
 
 	var attributeID primitive.ObjectID
 	attribute, err := ca.CreateNestedSingleSelectAttribute(
 		user.JwtToken,
-		request.NSSAttrReq{Name: attrName},
+		request.NSSAttrReq{Name: attrName, Options: options},
 	)
 	if err != nil {
 		return attribute.ID, err
