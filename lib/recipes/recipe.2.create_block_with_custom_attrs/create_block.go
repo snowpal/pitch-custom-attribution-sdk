@@ -9,7 +9,7 @@ import (
 )
 
 func CreateBlockWithCustomAttrs() {
-	log.Info("Objective: Add a new team, add couple of members to that and report status for each 1 of them")
+	log.Info("Objective: Create a block with all its custom attributes")
 	if _, err := recipes.ValidateDependencies(); err != nil {
 		return
 	}
@@ -31,22 +31,22 @@ func CreateBlockWithCustomAttrs() {
 		return
 	}
 
-	var blockID primitive.ObjectID
 	// Associate the above attribute bag with a block
-	err = AssociateBagWithBlock(user, blockID, attributeBag)
-	if err != nil {
+	var blockID primitive.ObjectID
+	if blockID, err = primitive.ObjectIDFromHex("26554ee536e4f585fb899f26"); err != nil {
+		return
+	}
+	if err = AssociateBagWithBlock(user, blockID, attributeBag); err != nil {
 		return
 	}
 
 	// Add values to the block attributes
-	err = AddValuesToBlockAttributes(user, blockID)
-	if err != nil {
+	if err = AddValuesToBlockAttributes(user, blockID); err != nil {
 		return
 	}
 
 	// Fetch all block custom attributes
-	err = FetchBlockAttributes(user)
-	if err != nil {
+	if err = FetchBlockAttributes(user); err != nil {
 		return
 	}
 }

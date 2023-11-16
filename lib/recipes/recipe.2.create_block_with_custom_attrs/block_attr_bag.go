@@ -63,7 +63,7 @@ func AssociateBagWithBlock(user response.User, blockID primitive.ObjectID,
 		BagIDs: []string{attrBag.ID.Hex()},
 	}
 
-	_, err := resources.AssociateAttrBagToResource(user.JwtToken, attrBagsData)
+	_, err := resources.AssociateAttrBagToResource(user.JwtToken, blockID.Hex(), attrBagsData)
 	if err != nil {
 		return err
 	}
