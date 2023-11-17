@@ -15,7 +15,14 @@ func CreateBlockAttributes(user response.User) (map[int]primitive.ObjectID, erro
 
 	var err error
 	var attrID primitive.ObjectID
-	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[BlockID].Name, false); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[Completed].Name,
+		false); err != nil {
+		return attrIDs, err
+	}
+	attrIDs[Completed] = attrID
+
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[BlockID].Name,
+		false); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[BlockID] = attrID
@@ -25,20 +32,14 @@ func CreateBlockAttributes(user response.User) (map[int]primitive.ObjectID, erro
 	}
 	attrIDs[Name] = attrID
 
-	if attrID, err = recipes.CreateTextAttribute(
-		user,
-		BlockAttrs[Description].Name,
-		false,
-	); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[Description].Name,
+		false); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[Description] = attrID
 
-	if attrID, err = recipes.CreateTextAttribute(
-		user,
-		BlockAttrs[SimpleDescription].Name,
-		false,
-	); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[SimpleDescription].Name,
+		false); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[SimpleDescription] = attrID
@@ -77,6 +78,12 @@ func CreateBlockAttributes(user response.User) (map[int]primitive.ObjectID, erro
 		return attrIDs, err
 	}
 	attrIDs[EndDate] = attrID
+
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[AllowArchival].Name,
+		false); err != nil {
+		return attrIDs, err
+	}
+	attrIDs[AllowArchival] = attrID
 
 	return attrIDs, nil
 }

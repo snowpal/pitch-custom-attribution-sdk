@@ -55,6 +55,7 @@ func AddValuesToBlockAttributes(user response.User, blockID primitive.ObjectID,
 
 	attrsReq := request.BagAttrsReq{
 		Attributes: []request.BagAttrReq{
+			{BagTextAttrReq: getTextAttributeValue(attrIDs[Completed], BlockCompletedValue)},
 			{BagTextAttrReq: getTextAttributeValue(attrIDs[BlockID], BlockIDValue)},
 			{BagTextAttrReq: getTextAttributeValue(attrIDs[Name], BlockNameValue)},
 			{BagTextAttrReq: getTextAttributeValue(attrIDs[Description], BlockDescValue)},
@@ -67,6 +68,7 @@ func AddValuesToBlockAttributes(user response.User, blockID primitive.ObjectID,
 			{BagDateAttrReq: getDateAttributeValue(attrIDs[DueDate], BlockDueDateValue)},
 			{BagDateAttrReq: getDateAttributeValue(attrIDs[StartDate], BlockStartDateValue)},
 			{BagDateAttrReq: getDateAttributeValue(attrIDs[EndDate], BlockEndDateValue)},
+			{BagTextAttrReq: getTextAttributeValue(attrIDs[AllowArchival], BlockAllowArchivalValue)},
 		},
 	}
 
@@ -98,6 +100,7 @@ func FetchBlockAttributes(user response.User, blockID primitive.ObjectID,
 
 func DisplayBlockAttributes(user response.User, attrBagValues response.ResourceAttrBagValues) {
 	blockAttrs := attrBagValues.Attributes
+	fmt.Printf("\nCompleted: %s\n", *blockAttrs[Completed].Text.Value)
 	fmt.Printf("\nBlockID: %s\n", *blockAttrs[BlockID].Text.Value)
 	fmt.Printf("\nName: %s\n", *blockAttrs[Name].Text.Value)
 	fmt.Printf("\nDescription: %s\n", *blockAttrs[Description].Text.Value)
@@ -111,4 +114,5 @@ func DisplayBlockAttributes(user response.User, attrBagValues response.ResourceA
 	fmt.Printf("\nDue Date: %s\n", *blockAttrs[DueDate].Date.Value)
 	fmt.Printf("\nStart Date: %s\n", *blockAttrs[StartDate].Date.Value)
 	fmt.Printf("\nEnd Date: %s\n", *blockAttrs[EndDate].Date.Value)
+	fmt.Printf("\nAllow Archival: %s\n", *blockAttrs[AllowArchival].Text.Value)
 }

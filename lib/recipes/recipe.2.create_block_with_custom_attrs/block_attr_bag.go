@@ -30,6 +30,7 @@ func CreateAttributeBagForBlock(user response.User,
 	attrBagReq := request.AttrBagReq{
 		Name: BlockAttrsBagName,
 		AttributesReq: []common.BagAttribute{
+			getAttrbitueData(attrIDs[Completed], Completed),
 			getAttrbitueData(attrIDs[BlockID], BlockID),
 			getAttrbitueData(attrIDs[Name], Name),
 			getAttrbitueData(attrIDs[Description], Description),
@@ -41,6 +42,7 @@ func CreateAttributeBagForBlock(user response.User,
 			getAttrbitueData(attrIDs[DueDate], DueDate),
 			getAttrbitueData(attrIDs[StartDate], StartDate),
 			getAttrbitueData(attrIDs[EndDate], EndDate),
+			getAttrbitueData(attrIDs[AllowArchival], AllowArchival),
 		},
 	}
 

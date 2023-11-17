@@ -1,7 +1,8 @@
 package blockattrs
 
 const (
-	BlockID = iota
+	Completed = iota
+	BlockID
 	Name
 	Description
 	SimpleDescription
@@ -12,21 +13,24 @@ const (
 	DueDate
 	StartDate
 	EndDate
+	AllowArchival
 )
 
 const (
-	BlockIDValue         = "A01"
-	BlockNameValue       = "Trial Block"
-	BlockDescValue       = "This is trial block and this is its description"
-	BlockSimpleDescValue = "This is block's simple description"
-	BlockTagsValue       = "Tag1,Tag2,Tag3"
-	BlockFlagValue       = "white"
-	BlockTypeID          = 2 // 2 is for "Advanced Placement" block type
-	BlockScaleID         = 1 // 1 is for for "Grades" scale
-	BlockScaleValueID    = 2 // 2 is for "B" scale value
-	BlockDueDateValue    = "2021-10-08T18:47:39.021103599Z"
-	BlockStartDateValue  = "2023-11-18T18:47:39.021103599Z"
-	BlockEndDateValue    = "2023-11-28T18:47:39.021103599Z"
+	BlockCompletedValue     = "false"
+	BlockIDValue            = "A01"
+	BlockNameValue          = "Trial Block"
+	BlockDescValue          = "This is trial block and this is its description"
+	BlockSimpleDescValue    = "This is block's simple description"
+	BlockTagsValue          = "Tag1,Tag2,Tag3"
+	BlockFlagValue          = "white"
+	BlockTypeID             = 2 // 2 is for "Advanced Placement" block type
+	BlockScaleID            = 1 // 1 is for for "Grades" scale
+	BlockScaleValueID       = 2 // 2 is for "B" scale value
+	BlockDueDateValue       = "2021-10-08T18:47:39.021103599Z"
+	BlockStartDateValue     = "2023-11-18T18:47:39.021103599Z"
+	BlockEndDateValue       = "2023-11-28T18:47:39.021103599Z"
+	BlockAllowArchivalValue = "true"
 )
 
 var BlockAttrs = map[int]struct {
