@@ -104,7 +104,6 @@ func CreateNSSAttribute(user response.User, attrName string,
 	SleepBefore()
 	log.Infof("Creating %s nested single select.", attrName)
 
-	var attributeID primitive.ObjectID
 	attribute, err := ca.CreateNestedSingleSelectAttribute(
 		user.JwtToken,
 		request.NSSAttrReq{Name: attrName, Options: options},
@@ -115,5 +114,5 @@ func CreateNSSAttribute(user response.User, attrName string,
 
 	SleepAfter()
 	log.Infof(".%s attribute has been created, ID: %s", attrName, attribute.ID.Hex())
-	return attributeID, nil
+	return attribute.ID, nil
 }

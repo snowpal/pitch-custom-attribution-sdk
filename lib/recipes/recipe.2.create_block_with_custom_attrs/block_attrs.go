@@ -25,22 +25,30 @@ func CreateBlockAttributes(user response.User) (map[int]primitive.ObjectID, erro
 	}
 	attrIDs[Name] = attrID
 
-	if attrID, err = recipes.CreateTextAttribute(user, "Description", false); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(
+		user,
+		BlockAttrs[Description].Name,
+		false,
+	); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[Description] = attrID
 
-	if attrID, err = recipes.CreateTextAttribute(user, "Simple Description", false); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(
+		user,
+		BlockAttrs[SimpleDescription].Name,
+		false,
+	); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[SimpleDescription] = attrID
 
-	if attrID, err = recipes.CreateTextAttribute(user, "Tags", true); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[Tags].Name, true); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[Tags] = attrID
 
-	if attrID, err = recipes.CreateTextAttribute(user, "Flag", false); err != nil {
+	if attrID, err = recipes.CreateTextAttribute(user, BlockAttrs[Flag].Name, false); err != nil {
 		return attrIDs, err
 	}
 	attrIDs[Flag] = attrID

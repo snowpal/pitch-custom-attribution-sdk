@@ -3,6 +3,7 @@ package blockattrs
 import (
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/helpers/recipes"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
 	log "github.com/sirupsen/logrus"
@@ -41,12 +42,15 @@ func CreateBlockWithCustomAttrs() {
 	}
 
 	// Add values to the block attributes
-	if err = AddValuesToBlockAttributes(user, blockID); err != nil {
+	if err = AddValuesToBlockAttributes(user, blockID, attributeBag, attributeIDs); err != nil {
 		return
 	}
 
 	// Fetch all block custom attributes
-	if err = FetchBlockAttributes(user); err != nil {
+	var attrBagValues response.ResourceAttrBagValues
+	if attrBagValues, err = FetchBlockAttributes(user, blockID, attributeBag.ID); err != nil {
 		return
 	}
+
+	DisplayBlockAttributes(user, attrBagValues)
 }
