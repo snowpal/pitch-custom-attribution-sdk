@@ -3,13 +3,13 @@ package customattributes
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/request"
-	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 	"io"
 	"net/http"
 
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/helpers"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/request"
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 )
 
 func CreateNestedSingleSelectAttribute(jwtToken string, reqBody request.NSSAttrReq) (response.NSSAttr, error) {

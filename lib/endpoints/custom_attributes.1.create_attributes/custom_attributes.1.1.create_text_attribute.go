@@ -12,7 +12,8 @@ import (
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 )
 
-func CreateTextAttribute(jwtToken string, reqBody request.PrimitiveAttrReq) (response.PrimitiveAttr, error) {
+func CreateTextAttribute(jwtToken string, reqBody request.PrimitiveAttrReq) (response.PrimitiveAttr,
+	error) {
 	var resTextAttr response.PrimitiveAttr
 
 	payload, err := helpers.GetRequestPayload(reqBody)

@@ -3,12 +3,13 @@ package attributesbag
 import (
 	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
+
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/helpers"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/request"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
-	"io"
-	"net/http"
 )
 
 func CreateAttributeBag(jwtToken string, reqBody request.AttrBagReq) (response.AttrBag, error) {

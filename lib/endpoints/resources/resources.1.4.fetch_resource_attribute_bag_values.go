@@ -11,9 +11,10 @@ import (
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
 )
 
-func FetchResourceAttrBagValues(jwtToken string) (response.ResourceAttrBagValues, error) {
+func FetchResourceAttrBagValues(jwtToken string, resourceID string,
+	bagID string) (response.ResourceAttrBagValues, error) {
 	var resAttributeBagValues response.ResourceAttrBagValues
-	route, err := helpers.GetRoute(lib.RouteResourcesGetResourceAttributeBagValues)
+	route, err := helpers.GetRoute(lib.RouteResourcesGetResourceAttributeBagValues, resourceID, bagID)
 	if err != nil {
 		fmt.Println(err)
 		return resAttributeBagValues, err

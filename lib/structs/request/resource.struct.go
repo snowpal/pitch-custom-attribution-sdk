@@ -35,3 +35,16 @@ type BagFileAttrReq struct {
 	ID   string                  `json:"ID"`
 	File common.BagPrimitiveAttr `json:"file"`
 }
+
+type BagAttrReq struct {
+	*BagTextAttrReq
+	*BagNumberAttrReq
+	*BagDateAttrReq
+	*BagFileAttrReq
+	*BagSelectAttrReq
+	*BagNSSAttrReq
+}
+
+type BagAttrsReq struct {
+	Attributes []BagAttrReq `json:"attributes"`
+}
