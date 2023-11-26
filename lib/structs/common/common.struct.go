@@ -56,19 +56,14 @@ type BagPrimitiveAttr struct {
 	Values *[]string `json:"values"`
 }
 
-type SelectValue struct {
-	SelectedID  *string   `json:"selectedID"`
-	SelectedIDs *[]string `json:"selectedIDs"`
-}
-
 type BagSelectAttr struct {
-	Value  *SelectValue   `json:"value"`
-	Values *[]SelectValue `json:"values"`
+	SelectedID  *int   `json:"selectedID"`
+	SelectedIDs *[]int `json:"selectedIDs"`
 }
 
 type BagSelectOption struct {
-	*SelectValue
-	*NSSValue
+	*BagSelectAttr
+	*BagNSSAttr
 }
 
 type NSSValueChild struct {
@@ -79,12 +74,7 @@ type NSSValueChild struct {
 	Option *BagSelectOption  `json:"option"`
 }
 
-type NSSValue struct {
-	SelectedID string         `json:"selectedID"`
-	Child      *NSSValueChild `json:"child"`
-}
-
 type BagNSSAttr struct {
-	Value  *NSSValue   `json:"value"`
-	Values *[]NSSValue `json:"values"`
+	SelectedID int            `json:"selectedID"`
+	Child      *NSSValueChild `json:"child"`
 }

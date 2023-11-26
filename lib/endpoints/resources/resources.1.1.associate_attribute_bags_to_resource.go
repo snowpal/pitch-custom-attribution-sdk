@@ -3,15 +3,17 @@ package resources
 import (
 	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
+
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/helpers"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/request"
 	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/response"
-	"io"
-	"net/http"
 )
 
-func AssociateAttrBagToResource(jwtToken string, reqBody request.AttrBagsReq) (response.Resource, error) {
+func AssociateAttrBagToResource(jwtToken string, resourceID string,
+	reqBody request.AttrBagsReq) (response.Resource, error) {
 	var resAttributeBag response.Resource
 
 	payload, err := helpers.GetRequestPayload(reqBody)
@@ -21,7 +23,7 @@ func AssociateAttrBagToResource(jwtToken string, reqBody request.AttrBagsReq) (r
 	}
 
 	var route string
-	route, err = helpers.GetRoute(lib.RouteResourcesAssociateAttributeBagsToResource)
+	route, err = helpers.GetRoute(lib.RouteResourcesAssociateAttributeBagsToResource, resourceID)
 	if err != nil {
 		fmt.Println(err)
 		return resAttributeBag, err
