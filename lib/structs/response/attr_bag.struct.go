@@ -1,9 +1,12 @@
 package response
 
-import "github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/common"
+import (
+	"github.com/snowpal/pitch-custom-attribution-sdk/lib/structs/common"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
 
 type AttrBag struct {
-	ID         string                `json:"ID"`
+	ID         primitive.ObjectID    `json:"ID"`
 	Name       string                `json:"name"`
 	Attributes []common.BagAttribute `json:"attributes"`
 	common.UserMetadata
